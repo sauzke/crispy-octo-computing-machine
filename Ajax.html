@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang=en>
+<head>
+    <meta charset="utf=8" />
+    <style>
+    #container {
+    font-family: monospace;
+    font-weight: bold;
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+</head>
+<body>
+    Hi, how can i help?
+    <input id="input" />
+    <div id="result"></div>
+    <script>
+    $(document).ready(function () {
+        $('#input').change(function () {
+            $.ajax({
+                type:'GET',
+                url: 'controller.php',
+                dataType: 'json',
+                //data: '{',
+                success: function (msg) {
+                    $.each(result[0], function (key, value) {
+                        console.log(key, value);
+                    });
+                }
+            });
+        });
+
+    });
+    </script>
+</body>
+</html>
